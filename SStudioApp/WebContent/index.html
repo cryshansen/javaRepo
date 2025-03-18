@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Studio Cart App 2</title>
+ 
+ 
+<link rel="stylesheet" type="text/css" href="css/multi_item_demo.css" />
+<link rel="stylesheet" type="text/css" href="css/multi_item_style.css" />
+ 
+ 
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+ 
+    <style>
+        body {
+            padding-top: 50px;
+            padding-left: 50px;
+            margin:50px auto;
+        }
+        #divTotal{
+            background-color: green;
+        }
+        .affix{
+            right: 0px;
+        }
+        .affix-top{
+            right: 0px;
+            position: fixed;
+        }
+        .uk-nav-default {margin-left:auto;margin-right:auto;}
+        .uk-nav li{display:inline-block;}
+    </style>
+ 
+</head>
+ 
+<!-- <body ng-app="shoppingCart"> -->
+<body ng-app="angularRouting">
+<!-- // Navigation Menu -->
+<ul class="uk-nav uk-nav-default">
+   <li><a ng-href="#/listing">Studio Listing</a></li>
+   <li><a ng-href="#/artfolio">Artfolio</a></li>
+  <!--  <li><a ng-href="#/about">About</a></li> -->
+   <li class="uk-active"> <a href="#/">Crystal Hansen Artographic</a></li>
+	  
+	<li><a href="#/projects">projects</a></li>
+	<li><a href="#/creds">creds</a></li>
+	   <li><a ng-href="#/auth">You shall not pass!</a></li>
+</ul>
+
+<!-- // Content will go here -->
+<main ng-view>  </main>
+ 
+    
+    {{ message }} 
+ 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+<!-- 	<script type="text/javascript" src="js/cart.js"></script>  -->
+	<script type="text/javascript" src="js/app.js"></script> 
+ 
+</body>
+ 
+</html>
