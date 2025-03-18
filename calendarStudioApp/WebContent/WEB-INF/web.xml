@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    
+    <display-name>Calendar Studio App</display-name>
+    
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    
+    <servlet>
+    <description></description>
+    <display-name>UserController</display-name>
+    <servlet-name>UserController</servlet-name>
+    <servlet-class>controller.UserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserController</servlet-name>
+    <url-pattern>/UserController</url-pattern>
+  </servlet-mapping>
+    
+    <servlet>
+    <description></description>
+    <display-name>StudioCalendarController</display-name>
+    <servlet-name>StudioCalendarController</servlet-name>
+    <servlet-class>controller.StudioCalendarController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudioCalendarController</servlet-name>
+    <url-pattern>/StudioCalendarController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StudioBookingController</display-name>
+    <servlet-name>StudioBookingController</servlet-name>
+    <servlet-class>controller.StudioBookingController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudioBookingController</servlet-name>
+    <url-pattern>/StudioBookingController</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>BookingEventController</display-name>
+    <servlet-name>BookingEventController</servlet-name>
+    <servlet-class>controller.BookingEventController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookingEventController</servlet-name>
+    <url-pattern>/BookingEventController</url-pattern>
+  </servlet-mapping>
+    
+</web-app>
