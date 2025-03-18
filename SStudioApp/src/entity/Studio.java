@@ -51,9 +51,19 @@ public class Studio implements java.io.Serializable{
 
 	private BigDecimal studioCharge;
 	
-	private String fullimage;
-	private String studiofolder;
+
+	//like address is to customer
+	@OneToMany(mappedBy = "studio", cascade = CascadeType.ALL)
+	private List<StudioBooking> bookingList;
 	
+	public List<StudioBooking> getBookingList() {
+		return bookingList;
+	}
+
+	public void setBookingList(List<StudioBooking> bookingList) {
+		this.bookingList = bookingList;
+	}
+
 	public Studio() {
 		super();
 	}
@@ -62,38 +72,17 @@ public class Studio implements java.io.Serializable{
 		this.studioId = studioId;
 	}
 	
-	
-	
-//	public Studio(String studioName,
-//			String studioDescription, 
-//			String studioSizeSq, 
-//			String studioAvailability, 
-//			String studioAccessories,
-//			BigDecimal studioCharge) {
-//		super();
-//		this.studioName = studioName;
-//		this.studioDescription = studioDescription;
-//		this.studioSizeSq = studioSizeSq;
-//		this.studioAvailability = studioAvailability;
-//		this.studioAccessories = studioAccessories;
-//		this.studioCharge = studioCharge;
-//	}
-	
-	public Studio(int studioId, String studioName, String studioDescription, String studioSizeSq,
-			String studioAvailability, String studioAccessories, BigDecimal studioCharge, String fullimage,
-			String studiofolder) {
+	public Studio(String studioName,String studioDescription, String studioSizeSq, String studioAvailability, String studioAccessories,
+			BigDecimal studioCharge) {
 		super();
-		this.studioId = studioId;
 		this.studioName = studioName;
 		this.studioDescription = studioDescription;
 		this.studioSizeSq = studioSizeSq;
 		this.studioAvailability = studioAvailability;
 		this.studioAccessories = studioAccessories;
 		this.studioCharge = studioCharge;
-		this.fullimage = fullimage;
-		this.studiofolder = studiofolder;
 	}
-
+	
 	public String getStudioName() {
 		return studioName;
 	}
@@ -141,22 +130,6 @@ public class Studio implements java.io.Serializable{
 	}
 	public void setStudioCharge(BigDecimal studioCharge) {
 		this.studioCharge = studioCharge;
-	}
-
-	public String getFullimage() {
-		return fullimage;
-	}
-
-	public void setFullimage(String fullimage) {
-		this.fullimage = fullimage;
-	}
-
-	public String getStudiofolder() {
-		return studiofolder;
-	}
-
-	public void setStudiofolder(String studiofolder) {
-		this.studiofolder = studiofolder;
 	}
 	
 	

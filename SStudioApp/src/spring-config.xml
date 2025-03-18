@@ -22,19 +22,28 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
     	</property>
     	<property name="annotatedClasses">
     		<list>
-    			
+    			<value>entity.Customer</value>
     			<value>entity.Studio</value>
+    			<value>entity.StudioBooking</value>
+    			<value>entity.Project</value>
     			
     		</list>
     	</property>
     </bean>
  
     
- 	
+ 	<bean id="customerDao" class="dao.CustomerDao">
+    	<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 	<bean id="studioDao" class="dao.StudioDao">
     	<property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    
+    <bean id="studioBookingDao" class="dao.StudioBookingDao">
+    	<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+  	<bean id="projectDao" class="dao.ProjectDao">
+    	<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
  		<property name="sessionFactory">
  			<ref local="sessionFactory"/>

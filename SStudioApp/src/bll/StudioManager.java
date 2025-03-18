@@ -2,11 +2,11 @@ package bll;
 
 import java.util.List;
 
-
+import dao.StudioBookingDao;
 import dao.StudioDao;
 
 import entity.Studio;
-
+import entity.StudioBooking;
 /**
  * 
  * 
@@ -17,7 +17,7 @@ public class StudioManager {
 
 
 	private StudioDao studioDao = util.SpringFactory.getStudioDao();
-//	private StudioBookingDao studioBookingDao = util.SpringFactory.getStudioBookingDao();
+	private StudioBookingDao studioBookingDao = util.SpringFactory.getStudioBookingDao();
 	
 	public Studio getSingleStudio(int studioId){
 		return studioDao.getStudioByStudioId(studioId);
@@ -66,10 +66,10 @@ public class StudioManager {
 		return success;
 	}
 	
-//	public List<StudioBooking> getStudioBookings(int studioId) {
-//		return studioBookingDao.getStudioBookings(studioId);
-//		
-//	}
+	public List<StudioBooking> getStudioBookings(int studioId) {
+		return studioBookingDao.getStudioBookings(studioId);
+		
+	}
 	
 	
 }

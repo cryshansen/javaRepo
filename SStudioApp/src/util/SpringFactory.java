@@ -4,9 +4,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
-
+import dao.StudioBookingDao;
 import dao.StudioDao;
-
+import dao.ProjectDao;
+import dao.CustomerDao;
 /*
  * rewrite from course instructions 
  * rewrite from scratch to understand completely.
@@ -18,11 +19,20 @@ public class SpringFactory {
 	
 	//this file will create the connection to the DAO class with the application context model
 	private static ApplicationContext ctx;
-	
+	private static CustomerDao customerDao;
 	private static StudioDao studioDao;
-
-	
-	
+	private static StudioBookingDao studioBookingDao;
+	private static ProjectDao projectDao;
+	public static CustomerDao getCustomerDao() {
+		
+		if(ctx==null) {
+			ctx =  new ClassPathXmlApplicationContext("spring-config.xml");
+		}
+		customerDao = (CustomerDao) ctx.getBean("customerDao");
+		
+		
+		return customerDao;
+	}
 
 	
 	public static StudioDao getStudioDao() {
@@ -36,7 +46,26 @@ public class SpringFactory {
 		return studioDao;
 	}
 
-	
+	public static StudioBookingDao getStudioBookingDao() {
+		
+		if(ctx==null) {
+			ctx =  new ClassPathXmlApplicationContext("spring-config.xml");
+		}
+		studioBookingDao = (StudioBookingDao) ctx.getBean("studioBookingDao");
+		
+		
+		return studioBookingDao;
+	}
+public static ProjectDao getProjectDao() {
+		
+		if(ctx==null) {
+			ctx =  new ClassPathXmlApplicationContext("spring-config.xml");
+		}
+		projectDao = (ProjectDao) ctx.getBean("projectDao");
+		
+		
+		return projectDao;
+	}
 	
 	//In the dao tests we had to call a transaction manager and its Template to implement the database call. 
 	// similar to the transactional formats of .net
