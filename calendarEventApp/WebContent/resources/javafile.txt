@@ -1,0 +1,158 @@
+//calendarAttributes // bookingEvent but should be bookingCalendarEvent
+
+//	@Column(length=10, nullable=true)
+//	private String   borderColor;
+//	@Column(length=10, nullable=true)
+//	private String   textColor;
+//	@Column(length=10, nullable=true)
+//	private String   className;
+//	@Column(length=10, nullable=true)
+//	private String   editable;
+//	@Column(length=10, nullable=true)
+//	private String   startEditable;
+//	@Column(length=10, nullable=true)
+//	private String   resourceEditable;
+//	@Column(length=10, nullable=true)
+//	private String   overlap ;
+//	@Column(length=10, nullable=true)
+//	private String   constraint ;
+//	@Column(length=10, nullable=true)
+//	private String   allow;
+//	@Column(length=10, nullable=true)
+//	private String   allDayDefault ;
+//	@Column(length=10, nullable=true)
+//	private String   success;
+//	@Column(length=10, nullable=true)
+//	private String   failure;
+
+
+//	public BookingEvent(int bookingId, Date bookingstart, Date bookingend, 
+//			String bookingHourStart,
+//			String bookingHourEnd, 
+//			String bookingTitle, String backgroundColor,
+////			String borderColor, String textColor, String className, String editable, String startEditable,
+////			String resourceEditable, String overlap, String constraint, String allow, String allDayDefault,
+////			String success, String failure,
+//			String eventStatus, int studioNumberInAttendance, Studio studio) {
+//		super();
+//		this.bookingId = bookingId;
+//		this.bookingstart = bookingstart;
+//		this.bookingend = bookingend;
+//		this.bookingHourStart = bookingHourStart;
+//		this.bookingHourEnd = bookingHourEnd;
+//		this.bookingTitle = bookingTitle;
+//		this.backgroundColor = backgroundColor;
+//		this.borderColor = borderColor;
+//		this.textColor = textColor;
+//		this.className = className;
+//		this.editable = editable;
+//		this.startEditable = startEditable;
+//		this.resourceEditable = resourceEditable;
+//		this.overlap = overlap;
+//		this.constraint = constraint;
+//		this.allow = allow;
+//		this.allDayDefault = allDayDefault;
+//		this.success = success;
+//		this.failure = failure;
+//		this.eventStatus = eventStatus;
+//		this.studioNumberInAttendance = studioNumberInAttendance;
+//		this.studio = studio;
+//	}
+
+	
+	
+//	public String getBorderColor() {
+//		return borderColor;
+//	}
+//
+//	public void setBorderColor(String borderColor) {
+//		this.borderColor = borderColor;
+//	}
+//
+//	public String getTextColor() {
+//		return textColor;
+//	}
+//
+//	public void setTextColor(String textColor) {
+//		this.textColor = textColor;
+//	}
+//
+//	public String getClassName() {
+//		return className;
+//	}
+//
+//	public void setClassName(String className) {
+//		this.className = className;
+//	}
+//
+//	public String getEditable() {
+//		return editable;
+//	}
+//
+//	public void setEditable(String editable) {
+//		this.editable = editable;
+//	}
+//
+//	public String getStartEditable() {
+//		return startEditable;
+//	}
+//
+//	public void setStartEditable(String startEditable) {
+//		this.startEditable = startEditable;
+//	}
+//
+//	public String getResourceEditable() {
+//		return resourceEditable;
+//	}
+//
+//	public void setResourceEditable(String resourceEditable) {
+//		this.resourceEditable = resourceEditable;
+//	}
+//
+//	public String getOverlap() {
+//		return overlap;
+//	}
+//
+//	public void setOverlap(String overlap) {
+//		this.overlap = overlap;
+//	}
+//
+//	public String getConstraint() {
+//		return constraint;
+//	}
+//
+//	public void setConstraint(String constraint) {
+//		this.constraint = constraint;
+//	}
+//
+//	public String getAllow() {
+//		return allow;
+//	}
+//
+//	public void setAllow(String allow) {
+//		this.allow = allow;
+//	}
+//
+//	public String getAllDayDefault() {
+//		return allDayDefault;
+//	}
+//
+//	public void setAllDayDefault(String allDayDefault) {
+//		this.allDayDefault = allDayDefault;
+//	}
+//
+//	public String getSuccess() {
+//		return success;
+//	}
+//
+//	public void setSuccess(String success) {
+//		this.success = success;
+//	}
+//
+//	public String getFailure() {
+//		return failure;
+//	}
+//
+//	public void setFailure(String failure) {
+//		this.failure = failure;
+//	}
