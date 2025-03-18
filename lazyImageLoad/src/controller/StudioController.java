@@ -77,11 +77,11 @@ public class StudioController extends HttpServlet {
 			case "LIST":
 				listStudio(request, response);
 				break;
-			//methods coded for jsp page receipt rather than json message through ajax	
+				
 			case "EDIT":
 				getSingleStudio(request, response);
 				break;
-			//methods coded for jsp page receipt rather than json message through ajax	
+				
 			case "DELETE":
 				deleteStudio(request, response);
 				break;
@@ -89,18 +89,13 @@ public class StudioController extends HttpServlet {
 			case "BOOK":
 				listStudioBooking(request, response);
 				break;
-			//the nugget we're working on.
 			case "GALLERY":
 				listStudioImages(request,response);
 				break;
-			//methods coded for jsp page receipt rather than json message through ajax
-			//when using date calendar from java rather than front end scripts
 			case "PREV":
 				listLastMonthAvailability( request, response);
 				break;
-				
-		    //methods coded for jsp page receipt rather than json message through ajax
-			//when using date calendar from java rather than front end scripts
+			
 			case "NEXT":
 				listNextMonthAvailability( request, response);
 				break;
@@ -120,7 +115,7 @@ public class StudioController extends HttpServlet {
 		if(studioManager.deleteStudio(studio)==0) {
 			request.setAttribute("NOTIFICATION", "Studio Deleted Successfully!");
 		}
-		//forward the http request
+		
 		listStudio(request, response);
 	}
 
@@ -129,7 +124,7 @@ public class StudioController extends HttpServlet {
 		String id = request.getParameter("id");
 		
 		Studio theStudio = studioManager.getSingleStudio(Integer.parseInt(id));
-		//java to jsp where declare a jstl component at top of page
+		
 		request.setAttribute("studio", theStudio);
 		
 		dispatcher = request.getRequestDispatcher("/views/studio-form.jsp");
@@ -139,10 +134,14 @@ public class StudioController extends HttpServlet {
 	//list images
 	private void listStudioImages(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//studioId on form but 'id' parameter in links
-		String id = request.getParameter("id");
+		
 		JSONArray theStudioImages = new JSONArray(); 
 		
+		
+		String id = request.getParameter("id");
+		if(id =="" || id ==null) {id="3";}
 		String studioPath = "studio"+id;
+		
 		
 
 		String path = this.getClass().getClassLoader().getResource("").getPath();
@@ -194,7 +193,7 @@ public class StudioController extends HttpServlet {
 	        writer.println(theStudioImages);
 	        writer.flush();
 		
-// jstl code for jsp page		
+		
 //		request.setAttribute("studio", theStudioImages);
 //		
 //		dispatcher = request.getRequestDispatcher("/views/studio-form.jsp");
@@ -250,7 +249,7 @@ public class StudioController extends HttpServlet {
 				//		dispatcher.forward(request, response);
 		
 	}
-	//for java calendar methodology rather than angular version
+	
 	private void listLastMonthAvailability(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("In last month!");
 		//studioId on form but 'id' parameter in links
@@ -269,8 +268,6 @@ public class StudioController extends HttpServlet {
 		dispatcher.forward(request, response);
 		
 	}
-	
-	////for java calendar methodology rather than angular version
 	private void listNextMonthAvailability(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//studioId on form but 'id' parameter in links
