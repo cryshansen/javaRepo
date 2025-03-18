@@ -1,0 +1,236 @@
+
+.textarea_block{
+	width:21.25rem;
+	padding:2.5rem;
+	position:absolute;
+	top:50%;
+	right:15%;
+	transform:translateY(-50%);
+	background-color:#F6F7F5;  /* pink faeaea grey F6F7F5 */
+	line-height:2em;
+}
+.textarea_block h1,h2,h3{
+	font-family: 'Cinzel', serif;
+	text-align:center;
+}/* 
+.textarea_block p:last-child{
+	padding:2.5rem 1.5rem;
+} */
+.page_block{
+	padding: 3.125rem 3.75rem;
+	position: relative;
+	max-width:100%;
+	background-color:#fff;
+}
+/* .page_block:before{
+	content:"";
+	width:65vw;
+	background-color:#F6F7F5;
+} */
+.workshop_section img{width:100%;}
+
+
+
+/* Colors used */
+:root {
+  --teal-050: #effcf6;
+  --teal-100: #c6f7e2;
+  --teal-200: #8eedc7;
+  --teal-300: #65d6ad;
+  --teal-400: #3ebd93;
+  --teal-500: #27ab83;
+  --teal-600: #199473;
+  --teal-700: #147d64;
+  --teal-800: #0c6b58;
+  --teal-900: #014d40;
+
+  --blue-grey-050: #f0f4f8;
+  --blue-grey-100: #d9e2ec;
+  --blue-grey-200: #bcccdc;
+  --blue-grey-300: #9fb3c8;
+  --blue-grey-400: #829ab1;
+  --blue-grey-500: #627d98;
+  --blue-grey-600: #486581;
+  --blue-grey-700: #334e68;
+  --blue-grey-800: #243b53;
+  --blue-grey-900: #102a43;
+  
+  --pink-grey:#f5d5d5;
+}
+/* 
+html {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 125%;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--blue-grey-900);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--blue-grey-100);
+}*/
+ 
+main #calendar_component .calendar {
+ /*  max-width: max-content; */
+  margin: 3em auto 0 auto;
+  padding: 1.5em;
+  background-color: #fff;
+  border: 2px solid var(--pink-grey);
+  border-radius: 8px;
+}
+
+/* For the month */
+main #calendar_component .month-indicator {
+  color: var(--blue-grey-700);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* CSS grid used for the dates*/
+main #calendar_component .day-of-week,
+main #calendar_component .date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* Styles for the weekday/weekend header */
+main #calendar_component .day-of-week {
+  margin-top: 1.25em;
+}
+
+main #calendar_component .day-of-week > * {
+  font-size: 0.7em;
+  color: var(--blue-grey-400);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  text-align: left;
+}
+
+/* Dates */
+main #calendar_component .date-grid {
+  margin-top: 0.5em;
+}
+
+/* Positioning the first day */
+main #calendar_component .date-grid button:first-child {
+  grid-column: 6;
+}
+
+/* Style for each day*/
+main #calendar_component .date-grid button {
+  position: relative;
+  border: 0;
+  width: 4.5ch;
+  height: 4.5ch;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--blue-grey-600);
+}
+
+main #calendar_component .date-grid button:hover,
+main #calendar_component .date-grid button:focus {
+  outline: none;
+  background-color: var(--blue-grey-050);
+  color: var(--blue-grey-700);
+}
+
+main #calendar_component .date-grid button:active,
+main #calendar_component .date-grid button.is-selected {
+  background-color: var(--teal-100);
+  color: var(--teal-900);
+}
+
+main #calendar_component .date-grid button.active_dates{
+	background-color:#f5d5d5 !important;
+}
+
+
+#myModal{
+	display: none;
+    position: absolute;
+    top: 18%;
+    left: 0;
+    width: 100%;
+    height: 80vw;
+    z-index: 9;
+ 
+}
+
+.modal{
+	background-color: #fff;
+	border: 2px solid #f5d5d5;
+	padding: 10px;
+	position:absolute;
+	top:0;
+	left:0;
+	z:index:999;
+	
+}
+.modal-content{
+	align-items: center;
+  justify-items: center;
+}
+.time_grid{width:100%;}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 5px;
+  background-color: #f5d5d5;
+  padding: 10px;
+  border-radius: 8px;
+ /* adjusted */
+}
+
+.grid-container > div {
+  background-color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 15px;
+}
+
+.item1 {
+  grid-column: 1 / 5;
+  
+  justify-column:left;
+}
+.item1 h2{
+	justify-content:left;
+	text-align:left;
+	padding:5px;
+}
+.item13 .plus,
+.item17 .plus,
+.item21 .plus,
+.item25 .plus,
+.item29 .plus,
+.item33 .plus,
+.item9 .plus{
+cursor: pointer;
+  height: 30px;
+  width: 30px;
+  
+  background-color: #f5d5d5;
+  border-radius: 20%;
+  display: inline-block;
+}
+
+.item13 .plus:before,
+.item17 .plus:before,
+.item21 .plus:before,
+.item25 .plus:before,
+.item29 .plus:before,
+.item33 .plus:before,
+.item9 .plus:before{content:"+"; color:#fff; font-weight:bold;}
+
+.grid-container .taken{
+
+	background-color:#yellow !important;
+
+}
+.modal{
+
+display:none;
+}
+
