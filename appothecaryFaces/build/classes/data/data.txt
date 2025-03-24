@@ -1,0 +1,182 @@
+
+CREATE TABLE `customers` (
+  `customerNumber` int(4) NOT NULL,
+  `clientName` varchar(50) NOT NULL,
+  `contactFirstName` varchar(50) NOT NULL,
+  `contactLastName` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `addressline1` varchar(50) DEFAULT NULL,
+  `addressline2` varchar(50) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `province` varchar(50) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
+  `postalCode` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `employees` (
+  `employeeNumber` int(6) NOT NULL,
+  `lastName` varchar(100) NOT NULL,
+  `firstName` varchar(100) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `reportsTo` int(6) NOT NULL,
+  `employeeRole` varchar(50) NOT NULL,
+  `storeCode` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `orderdetails` (
+  `orderLineNumber` int(6) NOT NULL,
+  `orderNumber` int(6) NOT NULL,
+  `productCode` int(6) NOT NULL,
+  `quantityOrdered` int(11) NOT NULL,
+  `pricePerItem` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-
+
+CREATE TABLE `orders` (
+  `orderNumber` int(6) NOT NULL,
+  `orderDate` datetime NOT NULL,
+  `requiredDate` datetime NOT NULL,
+  `shippedDate` datetime NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `customerNumber` int(15) NOT NULL,
+  `comments` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `paymentcards` (
+  `cardIndex` int(6) NOT NULL,
+  `ccNameOnCard` varchar(75) NOT NULL,
+  `ccNumber` varchar(16) NOT NULL,
+  `ccType` varchar(50) NOT NULL,
+  `ccSecurity` varchar(3) NOT NULL,
+  `ccExpireDate` varchar(4) NOT NULL,
+  `customerNumber` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `payments` (
+  `id` int(6) NOT NULL,
+  `amount` decimal(10,0) NOT NULL,
+  `paymentDate` date NOT NULL,
+  `customerNumber` int(6) NOT NULL,
+  `checkNumber` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `paymentspk` (
+  `customerNumber` int(11) NOT NULL,
+  `chequeNumber` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productlines`
+--
+
+CREATE TABLE `productlines` (
+  `productLinePk` int(6) NOT NULL,
+  `productLine` varchar(50) NOT NULL,
+  `textDescription` varchar(255) NOT NULL,
+  `htmlDescription` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `products` (
+  `productCode` int(6) NOT NULL,
+  `productName` varchar(100) NOT NULL,
+  `productScale` varchar(50) NOT NULL,
+  `productVendor` varchar(50) NOT NULL,
+  `productDescription` varchar(255) NOT NULL,
+  `quantityInStock` int(15) NOT NULL,
+  `buyPrice` decimal(10,0) NOT NULL,
+  `msrp` decimal(10,0) NOT NULL,
+  `productLineFK` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `offices` (
+  `officeCode` int(5) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `addressLine1` varchar(50) NOT NULL,
+  `province` varchar(50) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `postalCode` varchar(15) NOT NULL,
+  `addressLine2` varchar(50) NOT NULL,
+  `territory` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- phpMyAdmin SQL Dump
+-- version 4.9.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: May 29, 2020 at 11:25 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.4.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `apothecary`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `studioBooking`
+--
+
+CREATE TABLE `studiobooking` (
+  `studioBookingId` int(6) NOT NULL,
+  `studioBookingDate` date NOT NULL,
+  `studioBookingHours` varchar(10) NOT NULL,
+  `studioNumberInAttendance` int(4) NOT NULL,
+  `studioId` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `studioBooking`
+--
+
+INSERT INTO `studiobooking` (`studioBookingId`, `studioBookingDate`, `studioBookingHours`, `studioNumberInAttendance`, `studioId`) VALUES
+(1, '2020-06-03', '12:00:00PM', 3, 3),
+(2, '2020-06-05', '13:00:00PM', 1, 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `studiobooking`
+--
+ALTER TABLE `studiobooking`
+  ADD PRIMARY KEY (`studioBookingId`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `studioBooking`
+--
+ALTER TABLE `studiobooking`
+  MODIFY `studioBookingId` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
