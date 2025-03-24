@@ -1,0 +1,79 @@
+
+
+
+<div class="header">
+    <i class="fa fa-angle-left" ng-click="previous()"></i>
+    <span>{{month.format("MMMM, YYYY")}}</span>
+    <i class="fa fa-angle-right" ng-click="next()"></i>
+</div>
+<div class="week names">
+    <span class="day">Sun</span>
+    <span class="day">Mon</span>
+    <span class="day">Tue</span>
+    <span class="day">Wed</span>
+    <span class="day">Thu</span>
+    <span class="day">Fri</span>
+    <span class="day">Sat</span>
+</div>
+<div class="week" ng-repeat="week in weeks">
+    <span class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }" ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</span>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal" >
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="time_grid">
+    
+    
+		<div class="grid-container" >
+		  <div class="item1"><h2 id="dateSelected">Date Selected:{{day.format('dddd, MMMM Do YYYY')}} </h2></div>
+		  <div class="item2">Shoot Start</div>
+		  <div class="item3">End</div>  
+		  <div class="item4">Price</div>
+		  <div class="item5">Book</div>
+	
+			  <div class="item6 taken">8:00</div>
+			  <div class="item7 taken">10:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><span class="plus" ng-click="_addTime('8')" ></span></div>
+
+		   <div class="item6 taken">10:00</div>
+			  <div class="item7 taken">12:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><span class="plus" onclick="addTime('10'); return false"" ></span></div>
+
+		   <div class="item6 taken">13:00</div>
+			  <div class="item7 taken">15:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><span class="plus" onclick="addTime('13'); return false"" ></span></div>
+
+		   <div class="item6 taken">15:00</div>
+			  <div class="item7 taken">17:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><span class="plus" onclick="addTime('15'); return false"" ></span></div>
+
+		   <div class="item6 taken">17:00</div>
+			  <div class="item7 taken">19:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><span class="plus" onclick="addTime('17'); return false"" ></span></div>
+
+		   <div class="item6 taken">19:00</div>
+			  <div class="item7 taken">21:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><span class="plus"  onclick="addTime('19'); return false" ></span></div>
+		  </div>
+		  <div class="item1"><button class="return_cal" style="float:left">back to calendar</button><button class="return_cart" style="float:right">Shoots (0 slots)</button></div>
+		  
+		</div>
+    	
+    	
+    	
+    	
+    </div>
+  </div>
+
+
+

@@ -1,0 +1,88 @@
+ 
+ <div class="container" style="width:100%;margin:15px;" ng-controller="cartController">
+ <button type="button" class="btn btn-danger btn-raised" ui-sref="calendar">Back to Calendar</button>	
+  <div class="row">
+  	<div><h2>Studio Booking Cart</h2></div>
+	 <!--  <button type="button" class="btn btn-danger btn-raised" ui-sref="#/calendar">Back to Calendar</button>	 -->
+	 <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
+	 	
+	      <div class="row">
+	        <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6">
+	         <h3 class="panel-title">{{studio_name}} </h3>
+	            <div class="panel panel-primary" ng-repeat="d in bookingCart">
+	            
+	            
+	            <div ng-if="d.studio != ''">
+	                <div class="panel-body">
+				 		<div class="container" style="width:100%;">			        	
+							<div class="row">
+				   				
+							  <!-- 	<div class="col"> {{ d.studioName }} </div>  -->
+							  	<div class="col-xs-9 col-md-9 col-sm-9 col-lg-9"> {{ d.studioDescription }} </div> 
+							  	<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3">  {{ d.studioSizeSq }} </div>
+							  	<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3"> {{ d.price }} </div> 
+							  	<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3"> Reserved </div>
+							</div>
+							<div style="width:95%; margin-left:15px;margin-top:15px;" >
+					        	<div class="row header">
+					        	 	<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3">Shoot Start</div>
+							  		<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3">End</div>  
+							  		<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3">Price</div>
+							  		<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3">Book</div>
+							  		<div class="col-xs-1 col-md-1 col-sm-1 col-lg-1"></div>
+							  </div>
+							  <hr>
+							 <div  ng-repeat="b in d.bookingDates">
+								 <div class="row" ng-if="d.studio != ''">
+					   				<div class="col-xs-4 col-md-4 col-sm-4 col-lg-4">{{b.start}}</div>
+								  	<div class="col-xs-4 col-md-4 col-sm-4 col-lg-4">{{b.end}}</div>
+								  	<div class="col-xs-1 col-md-1 col-sm-1 col-lg-1">{{b.price}}</div> 
+								  	<div class="col-xs-2 col-md-2 col-sm-2 col-lg-2"> Pending</div>
+								  	<div class="col-xs-1 col-md-1 col-sm-1 col-lg-1"> <a href="#/cart" class="btn btn-danger">x</a></div>
+								  </div>	
+					   				
+								</div>	
+							</div>	
+						</div> 
+	                </div>
+	                
+				</div><!-- /.ng-if left -->
+	            </div>
+	        </div>   <!-- /.column left -->
+	
+	        <div class="col-xs-5 col-md-4 col-sm-4 col-lg-4" data-spy="affix" data-offset-top="20">
+	            <div class="panel panel-primary">
+	              <div id="divTotal" class="panel-heading">
+	                  <h3 class="panel-title">Total</h3>
+	              </div>
+	              <div class="panel-body">
+	                  <h2>$ {{total}}</h2>
+	              </div>
+	          </div>
+	          <div class="text-center">
+	              <a href="#/checkout" class="btn btn-danger">Checkout <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+	              
+	          </div>
+	        </div>
+	     </div>
+	      <div class="row">
+	        <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6">
+		         <h1>Services</h1>
+				  <div ng-controller="ListCtrl as list">
+				    <p ng-repeat="message in list.messages">{{ message.id }}: {{ message.text }}</p>
+				  </div>
+		     
+		      	<div ng-controller="PostCtrl as post">
+				  <form ng-submit="post.addMessage(post.newMessage)">
+				    <input type="text" ng-model="post.newMessage">
+				    <button type="submit">Add Message</button>
+				  </form>
+				</div>
+		      </div>
+		   </div>
+		    
+</div>
+</div>
+</div><!-- /.container -->
+    
+

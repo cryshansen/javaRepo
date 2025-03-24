@@ -1,0 +1,111 @@
+<!doctype html>
+<html ng-app="calendarApp">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>  
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.min.js"></script> 
+    <script src="https://rawgithub.com/angular-ui/ui-calendar/master/src/calendar.js"></script>
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+      
+    <script src="js/calendarAngular.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.css" rel="stylesheet" />
+
+  
+  </head>
+  <body>
+ <style>.no-color{background-color:#fff !important;}</style>
+ <style> .row {width:100%; margin-left:20px;} div{display:inline-block; }</style>
+<div ng-controller="ModalDemoCtrl">
+
+    <!-- Calendar modal -->
+    <script type="text/ng-template" id="calModalContent.html">
+        <div class="modal-header">
+            <h3>Calendar</h3>
+            <p>Click day to add event</p>
+        </div>
+        <div class="modal-body">
+            <div>
+              <div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+    <!-- Other modal -->
+    <script type="text/ng-template" id="bookingInstance.html">
+  
+
+
+
+  <!-- Modal content -->
+    <div class="time_grid">
+
+		<div class="container-fluid" >
+		  <div class="item1"><h2 id="dateSelected">Date Selected:{{selected}} </h2></div>
+		 	<div class="row">
+ 				<div class="col-sm">Shoot Start</div>
+		  		<div class="col-sm">End</div>  
+		 		 <div class="col-sm">Price</div>
+		 		 <div class="col-sm">Book</div>
+			</div>
+			 <div class="row">
+			 <div class="item6 taken">8:00</div>
+			  <div class="item7 taken">10:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><button class="plus" ng-click="addTime('8'); "></button></div>
+			</div>
+<div class="row">
+		   <div class="item6 taken">10:00</div>
+			  <div class="item7 taken">12:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><button class="plus" ng-click="addTime('10'); " ></button></div>
+</div>
+<div class="row">
+		   <div class="item6 taken">13:00</div>
+			  <div class="item7 taken">15:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><button class="plus" ng-click="addTime('13');" ></button></div>
+</div>
+<div class="row">
+		   <div class="item6 taken">15:00</div>
+			  <div class="item7 taken">17:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><button class="plus" ng-click="addTime('15'); " ></button></div>
+</div>
+<div class="row">
+		   <div class="item6 taken">17:00</div>
+			  <div class="item7 taken">19:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><button class="plus" ng-click="addTime('17'); " ></button></div>
+</div>
+<div class="row">
+		   <div class="item6 taken">19:00</div>
+			  <div class="item7 taken">21:00</div>
+			  <div class="item8 taken">$90.00</div> 
+			  <div class="item9 taken"><button class="plus"  ng-click="addTime('19');" ></button></div>
+		  </div>
+</div>
+				</div>
+    	
+        <div class="modal-footer">
+  			<button class="return_cal" style="float:left" ng-click="ok()">back to calendar</button>
+			<button class="return_cart" style="float:right"  ng-click="addCart(this)" >Shoots ({{bookings.length}} slots)</button>
+		</div>
+		  
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+
+    </script>
+    
+    <button class="btn" ng-click="open()">Open calendar</button>
+
+</div>
+  </body>
+</html>

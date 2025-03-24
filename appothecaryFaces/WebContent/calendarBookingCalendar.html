@@ -1,0 +1,71 @@
+<div id="calendar" calendar-show></div>
+
+
+<div id="eventDetails" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{getTitle}}</h4>
+      </div>
+      <div class="modal-body form-group">
+        
+        <div class="pull-right btn btn-info btn-fab" ng-click="edit = !edit"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+        <div>Date :{{getDate}}
+        </div>
+        <div>Start Time :
+          <input type="text" class="form-control" ng-disabled="edit" ng-model="getStartTime">
+        </div>
+        <div>End Time :
+          <input type="text" class="form-control" ng-disabled="edit" ng-model="getEndTime"> </div>
+      </div>
+      <div class="modal-footer">
+        <button ng-if="edit" type="button" class="btn btn-default btn-raised" data-dismiss="modal">Close</button>
+        <button ng-if="edit" type="button" class="btn btn-danger btn-raised">Delete</button>
+        <button ng-if="!edit" type="button" class="btn btn-primary btn-raised" ng-click="edit = !edit">Save</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div id="eventCreate" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">New studio Booking</h4>
+      </div>
+      <div class="modal-body form-group">
+        <div>Studio Title :
+          <input type="text" name="event_title" class="form-control" ng-model="event_title">
+        </div>
+        <div>Date :
+          <input type="text" name="event_date" class="form-control"  value="{{setSelectedDate}}" disabled ng-model="setSelectedDate">
+        </div>
+        <div>Start Time :
+          <input type="time" name="start_time" class="form-control" ng-model="start_time">
+
+        </div>
+        <div>End Time :
+          <input type="time" name="end_time" class="form-control" ng-model="end_time">
+
+        </div>
+
+        <div>Event Color :
+          <input type="color" name="favcolor" class="form-control" value="#ccc" ng-model="event_color">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-raised" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary btn-raised" ng-click="addNewEvent()">Save</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

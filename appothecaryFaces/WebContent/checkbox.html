@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+ <head>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <!-- Bootstrap Css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+  <style>
+  .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 5px;
+  background-color: #f5d5d5;
+  padding: 10px;
+  border-radius: 8px;
+ /* adjusted */
+}
+
+.grid-container > div {
+  background-color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 15px;
+}
+
+.item1 {
+  grid-column: 1 / 5;
+  
+  justify-column:left;
+}
+.item1 h2{
+	justify-content:left;
+	text-align:left;
+	padding:5px;
+}
+.item13 .plus,
+.item17 .plus,
+.item21 .plus,
+.item25 .plus,
+.item29 .plus,
+.item33 .plus,
+.item9 .plus{
+cursor: pointer;
+  height: 30px;
+  width: 30px;
+  
+  background-color: #f5d5d5;
+  border-radius: 20%;
+  display: inline-block;
+}
+
+.item13 .plus:before,
+.item17 .plus:before,
+.item21 .plus:before,
+.item25 .plus:before,
+.item29 .plus:before,
+.item33 .plus:before,
+.item9 .plus:before{content:"+"; color:#fff; font-weight:bold;}
+
+.grid-container .taken{
+
+	background-color:#yellow !important;
+
+}
+  
+  </style> 
+ </head>
+ <body ng-app='myapp'>
+ <main style = "margin-left:50px;">
+   <div ng-controller="fetchCtrl">
+  
+<div id="bookingCreate" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">New Studio Booking</h4>
+      </div>
+      <div class="modal-body form-group">
+        <div>Studio Title : {{getStudioTitle}}
+          <input type="text" name="event_title" class="form-control" ng-model="event_title">
+        </div>
+        <div>Date :{{getDate}}
+          <input type="text" name="event_date" class="form-control"  value="{{setSelectedDate}}" disabled ng-model="setSelectedDate">
+        </div>
+        
+        
+        
+	 	<div class="container" style="width:70%;">
+	        	<div class="row header">
+	        	 	<div class="col">Shoot Start</div>
+			  		<div class="col">End</div>  
+			  		<div class="col">Price</div>
+			  		<div class="col">Book</div>
+			  </div>
+				<div class="row oursCanBook" ng-repeat="hour in hoursCanBook">
+	   				<div class="col">{{hour.start}}</div>
+				  	<div class="col taken">{{hour.end}}</div>
+				  	<div class="col taken">{{hour.price}}</div> 
+				  	<div class="col taken">{{hour.avail}}</div>
+	   				<div class="col">
+	   				
+       					<div ng-if="hour.avail == 'Y' ">
+            				<input type='checkbox' value='{{ hour.start }}' ng-model='hour.selected'> Book it!
+					    </div>
+					    <div ng-if="hour.avail == 'N' ">
+					       Already Booked!
+					    </div>
+						   				
+					</div>
+				</div>	
+		</div>
+		<div>Event Color :
+          <input type="color" name="favcolor" class="form-control" value="#ccc" ng-model="event_color">
+
+        </div>
+      </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-raised" data-dismiss="modal">Cancel</button>
+        <input type='button' ng-click='checkVal()' value='Click'>
+        <!-- <button type="button" class="btn btn-primary btn-raised" ng-click="addNewEvent()">Save</button> -->
+      </div> 
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+    
+
+
+
+    <br><br>
+    Result : <span >{{ result }}</span>
+
+
+  </div>
+</main>
+  <!-- Script -->
+  <script>
+  var fetch = angular.module('myapp', []);
+
+  fetch.controller('fetchCtrl', ['$scope', '$http', function ($scope, $http) {
+	  
+	  
+	  $("#bookingCreate").modal("show");
+    
+	  
+
+    $scope.hoursCanBook= [{
+    	start: '08:00 AM',
+        end:'10:00 AM',
+        price: '$90.00',
+        avail: 'N'
+    	
+    },{
+    	start: '10:00 AM',
+        end:'12:00 AM',
+        price: '$90.00',
+        avail: 'Y'
+    },{
+    	start: '13:00 PM',
+        end:'15:00 PM',
+        price: '$90.00',
+        avail: 'Y'
+    },{
+    	start: '15:00 PM',
+        end:'17:00 PM',
+        price: '$90.00',
+        avail: 'Y'
+    },{
+    	start: '17:00 PM',
+        end:'19:00 PM',
+        price: '$90.00',
+        avail: 'Y'
+    },{
+    	start: '19:00 PM',
+        end:'21:00 PM',
+        price: '$90.00',
+        avail: 'Y'
+    }];
+    
+    
+    
+    // Check checkboxes checked or not
+    $scope.checkVal = function(){
+ 
+    var checkedHour = '';
+    $scope.hoursCanBook.forEach(function(hour) {
+
+      if (hour.selected) {
+        if(checkedHour != ''){
+        	checkedHour += " , ";
+        }
+        checkedHour += hour.start;
+      }
+    });
+    $scope.result = checkedHour;
+ 
+   }
+ 
+  }]);
+
+  </script>
+
+ </body>
+</html>
